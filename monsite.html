@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="images/x-icon" />
+  <title>RL CodeWorks</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f8f9fa;
+      color: #333;
+    }
+	
+	.logo {
+		width: 200px;
+		height: 200px;
+		
+	}
+	
+	.logo-container:hover {
+	  transform: scale(1.05);
+	}
+	
+	.logo-container {
+	  border: 2px solid white;
+	  background-color: #001129;
+	  border-radius: 16px;
+	  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+	  max-width: 300px;
+	  margin: auto;
+	  transition: transform 0.3s ease;
+	}
+
+    header {
+      background: #001129;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+	
+    nav {
+      background: #001150;
+      padding: 10px;
+      text-align: center;
+    }
+	
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+	  position: relative;
+	  transition: transform 0.3s ease;
+    }
+	nav a::after {
+	  content: "";
+	  position: absolute;
+	  width: 100%;
+	  height: 2px;
+	  bottom: -4px;
+	  left: 0;
+	  background-color: white;
+	  transform: scaleX(0);
+	  transform-origin: left;
+	  transition: transform 0.3s ease;
+	}
+
+	nav a:hover::after {
+	  transform: scaleX(1);
+	}
+	
+	#presentation p {
+	  font-size: 17px;
+	  color: #333;
+	  margin-bottom: 20px;
+	  max-width: 800px;
+	  margin-left: auto;
+	  margin-right: auto;
+	  text-align: center;
+	}
+	
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+	
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+	  
+      justify-content: space-around;
+	  
+    }
+	
+    .service {
+      background: white;
+	  border-radius: 10px;
+      padding: 10px;
+      flex: 1 1 250px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+	  transition: transform 0.3s ease;
+	  cursor: pointer;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-between;
+	  min-height: 420px; /* ou ajuste selon ton contenu */
+    }
+	.service:hover {
+	  transform: scale(1.1);
+	  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+	}
+	.service .btn {
+	  align-self: center;
+	  margin-top: auto;
+	}
+	.service ul {
+	  padding-left: 20px;
+	  list-style-type: disc;
+	}
+	.service ul li {
+	  margin-bottom: 8px;
+	}
+	.service p strong {
+	  font-size: 18px;
+	  color: #001129;
+	}
+	
+	.btn {
+	  display: inline-block;
+	  padding: 10px 20px;
+	  background: linear-gradient(to bottom, #6fc64f, #4caf50);
+	  color: white;
+	  font-weight: bold;
+	  text-decoration: none;
+	  border-radius: 8px;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	  transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.btn:hover {
+	  transform: scale(1.05);
+	  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+	}
+	
+	form {
+	  max-width: 600px;
+	  margin: auto;
+	  background-color: #ffffff;
+	  padding: 20px;
+	  border-radius: 10px;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	}
+
+	form label {
+	  font-weight: bold;
+	}
+
+	form input,
+	form textarea {
+	  width: 95%;
+	  padding: 10px;
+	  margin-top: 4px;
+	  margin-bottom: 15px;
+	  border: 1px solid #ccc;
+	  border-radius: 6px;
+	  font-size: 16px;
+	  font-family: Arial, sans-serif;
+	}
+
+	form .btn {
+	  background: linear-gradient(to bottom, #5ca945, #4a943a); /* ou autre version plus sobre */
+	  border: none;
+	  padding: 10px 25px;
+	  font-size: 16px;
+	  border-radius: 8px;
+	  font-weight: bold;
+	  color: white;
+	  cursor: pointer;
+	  transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	form .btn:hover {
+	  transform: scale(1.05);
+	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	}
+
+	form select {
+	  width: 99%;
+	  padding: 10px;
+	  margin-top: 4px;
+	  margin-bottom: 15px;
+	  border: 1px solid #ccc;
+	  border-radius: 6px;
+	  font-size: 16px;
+	  font-family: Arial, sans-serif;
+	}
+	
+    footer {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+	
+    @media (max-width: 600px) {
+      .services {
+        flex-direction: column;
+      }
+    }
+  </style>
+<meta name="description" content="RL CodeWorks propose des sites vitrines simples, modernes et sur mesure pour les entrepreneurs, artisans et indépendants.">
+<meta name="keywords" content="site vitrine, création site, RL CodeWorks, développeur web, autoentrepreneur, artisan, Draguignan, freelance">
+<meta name="author" content="Rémy Llaubères">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="RL CodeWorks – Création de sites vitrines sur mesure">
+<meta property="og:description" content="Des sites clairs, modernes et efficaces pour vous démarquer en ligne.">
+<meta property="og:image" content="https://ton-site.fr/logo-foncé.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ton-site.fr">
+
+
+</head>
+
+<body>
+  <header>
+    <div class='logo-container'>
+		<img class='logo' src="logo-foncé.png" alt="RL CodeWorks" loading="lazy">
+	</div>
+    <p style="font-style: italic; font-weight: 300; margin-top: 10px;">
+		Votre vitrine web, sur mesure
+	</p>
+  </header>
+  <nav>
+    <a href="#presentation">Présentation</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  
+  <section id="presentation">
+    <h2>Qui sommes-nous ?</h2>
+    <p>
+    <strong>RL CodeWorks</strong> est un studio indépendant spécialisé dans la création de sites vitrines professionnels, modernes et accessibles.
+    Fondé par un passionné de développement web, nous avons pour mission de vous aider à établir une présence en ligne claire, efficace et élégante.
+  </p>
+  <p>
+    Nous croyons que chaque entrepreneur mérite un site à son image, même sans budget démesuré. C’est pourquoi nous proposons des solutions simples,
+    rapides à mettre en œuvre, et entièrement personnalisées.
+  </p>
+  <p>
+    Que vous soyez artisan, thérapeute, auto-entrepreneur ou association, nous vous accompagnons avec sérieux et créativité pour donner vie à votre vitrine digitale.
+  </p>
+  </section>
+
+  <section id="services">
+  <h2>Nos Services</h2>
+  <div class="services">
+    <div class="service">
+      <h3> Offre standard</h3>
+      <p>
+        Un site vitrine simple, rapide et efficace pour démarrer votre présence en ligne :
+      </p>
+      <ul>
+        <li>1 page responsive (accueil + contact)</li>
+        <li>Design personnalisé avec vos couleurs</li>
+        <li>Livraison sous 3 jours</li>
+      </ul>
+      <p><strong>100 € TTC</strong></p>
+	  <a href="#contact" class="btn">Obtenir</a>
+    </div>
+	
+    
+	<div class="service">
+      <h3> Offre Intermédiaire</h3>
+      <p>
+        Pour les pros qui souhaitent aller plus loin, avec plus de contenu et d’interactions :
+      </p>
+      <ul>
+        <li>Jusqu’à 3 pages (accueil, à propos, contact)</li>
+        <li>Formulaire de contact fonctionnel</li>
+        <li>Intégration logo, photos, contenus</li>
+      </ul>
+      <p><strong>150 € TTC</strong></p>
+	  <a href="#contact" class="btn">Obtenir</a>
+    </div>
+	
+    
+	<div class="service">
+      <h3> Offre Premium</h3>
+      <p>
+        Un accompagnement complet, sur-mesure, clé en main :
+      </p>
+      <ul>
+        <li>Site complet (jusqu’à 5 pages)</li>
+        <li>Nom de domaine + mise en ligne comprise</li>
+        <li>Optimisation mobile et référencement SEO de base</li>
+        <li>Support technique 1 mois</li>
+      </ul>
+      <p><strong>250 € TTC</strong></p>
+	  <a href="#contact" class="btn">Obtenir</a>
+    </div>
+	
+  </div>
+</section>
+
+
+  <section id="contact">
+  <h2>Contactez-nous</h2>
+  <form action="https://formspree.io/f/xeokovvw" method="POST">
+    <label for="service">Offre souhaitée :</label><br>
+	<select id="service" name="Offre" required>
+	  <option value="" disabled selected>Selectionnez l'offre qui vous intéresse</option>
+	  <option value="Offre Standard">Offre Standard – 100 € TTC</option>
+	  <option value="Offre Intermédiaire">Offre Intermédiaire – 150 € TTC</option>
+	  <option value="Offre Premium">Offre Premium – 250 € TTC</option>
+	</select><br><br>
+
+	<label for="name">Nom :</label><br>
+    <input type="text" id="name" name="Nom" required><br><br>
+
+    <label for="email">Email :</label><br>
+    <input type="email" id="email" name="Email" required><br><br>
+
+    <label for="message">Message :</label><br>
+    <textarea id="message" name="Message" rows="5" required></textarea><br><br>
+
+    <button type="submit" class="btn">Envoyer</button>
+  </form>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Nom de l'entreprise. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
