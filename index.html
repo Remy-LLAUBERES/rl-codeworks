@@ -6,8 +6,215 @@
   <link rel="shortcut icon" href="favicon.ico" type="images/x-icon" />
   <title>RL CodeWorks</title>
   <style>
-    /* styles conservés inchangés */
-    /* ... */
+	body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	background: #f8f9fa;
+	color: #333;
+	}
+	
+	.logo {
+	width: 200px;
+	height: 200px;
+		
+	}
+	
+	.logo-container:hover {
+	  transform: scale(1.05);
+	}
+	
+	.logo-container {
+	  border: 2px solid white;
+	  background-color: #001129;
+	  border-radius: 16px;
+	  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+	  max-width: 300px;
+	  margin: auto;
+	  transition: transform 0.3s ease;
+	}
+	
+	header {
+	background: #001129;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	}
+	
+	nav {
+	background: #001150;
+	padding: 10px;
+	text-align: center;
+	}
+	
+	nav a {
+	color: white;
+	text-decoration: none;
+	margin: 0 15px;
+	font-weight: bold;
+	  position: relative;
+	  transition: transform 0.3s ease;
+	}
+	nav a::after {
+	  content: "";
+	  position: absolute;
+	  width: 100%;
+	  height: 2px;
+	  bottom: -4px;
+	  left: 0;
+	  background-color: white;
+	  transform: scaleX(0);
+	  transform-origin: left;
+	  transition: transform 0.3s ease;
+	}
+	
+	nav a:hover::after {
+	  transform: scaleX(1);
+	}
+	
+	#presentation p {
+	  font-size: 17px;
+	  color: #333;
+	  margin-bottom: 20px;
+	  max-width: 800px;
+	  margin-left: auto;
+	  margin-right: auto;
+	  text-align: center;
+	}
+	
+	section {
+	padding: 40px 20px;
+	max-width: 1000px;
+	margin: auto;
+	}
+	
+	.services {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	  
+	justify-content: space-around;
+	  
+	}
+	
+	.service {
+	  background: white;
+	  border-radius: 10px;
+	  padding: 10px;
+	  flex: 1 1 250px;
+	  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+	  transition: transform 0.3s ease;
+	  cursor: pointer;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-between;
+	  min-height: 420px; /* ou ajuste selon ton contenu */
+	}
+	.service:hover {
+	  transform: scale(1.1);
+	  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+	}
+	.service .btn {
+	  align-self: center;
+	  margin-top: auto;
+	}
+	.service ul {
+	  padding-left: 20px;
+	  list-style-type: disc;
+	}
+	.service ul li {
+	  margin-bottom: 8px;
+	}
+	.service p strong {
+	  font-size: 18px;
+	  color: #001129;
+	}
+	.service img:hover {
+	  transform: scale(1.02);
+	  transition: transform 0.3s ease;
+	}
+	.btn {
+	  display: inline-block;
+	  padding: 10px 20px;
+	  background: linear-gradient(to bottom, #6fc64f, #4caf50);
+	  color: white;
+	  font-weight: bold;
+	  text-decoration: none;
+	  border-radius: 8px;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	  transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	
+	.btn:hover {
+	  transform: scale(1.05);
+	  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+	}
+	
+	form {
+	  max-width: 600px;
+	  margin: auto;
+	  background-color: #ffffff;
+	  padding: 20px;
+	  border-radius: 10px;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	}
+	
+	form label {
+	  font-weight: bold;
+	}
+	
+	form input,
+	form textarea {
+	  width: 95%;
+	  padding: 10px;
+	  margin-top: 4px;
+	  margin-bottom: 15px;
+	  border: 1px solid #ccc;
+	  border-radius: 6px;
+	  font-size: 16px;
+	  font-family: Arial, sans-serif;
+	}
+	
+	form .btn {
+	  background: linear-gradient(to bottom, #5ca945, #4a943a); /* ou autre version plus sobre */
+	  border: none;
+	  padding: 10px 25px;
+	  font-size: 16px;
+	  border-radius: 8px;
+	  font-weight: bold;
+	  color: white;
+	  cursor: pointer;
+	  transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	
+	form .btn:hover {
+	  transform: scale(1.05);
+	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	}
+	
+	form select {
+	  width: 99%;
+	  padding: 10px;
+	  margin-top: 4px;
+	  margin-bottom: 15px;
+	  border: 1px solid #ccc;
+	  border-radius: 6px;
+	  font-size: 16px;
+	  font-family: Arial, sans-serif;
+	}
+	
+	footer {
+	background: #343a40;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	}
+	
+	@media (max-width: 600px) {
+	.services {
+	flex-direction: column;
+	}
+	}
   </style>
   <meta name="description" content="RL CodeWorks propose des sites vitrines simples, modernes et sur mesure pour les entrepreneurs, artisans et indépendants.">
   <meta name="keywords" content="site vitrine, création site, RL CodeWorks, développeur web, autoentrepreneur, artisan, Draguignan, freelance">
